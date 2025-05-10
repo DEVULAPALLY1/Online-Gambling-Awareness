@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Technology-Based Learning</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    :root {
+      --primary: #6366f1;
+      --primary-dark: #4338ca;
+      --primary-light: #818cf8;
+      --primary-lighter: #c7d2fe;
+    }
+    .icon-style {
+      background-color: var(--primary-light);
+      color: white;
+    }
+  </style>
+</head>
+<body class="bg-gray-100 py-10 px-4 font-sans">
+  <a href="#" onclick="goBack()" style="display:inline-flex;align-items:center;gap:8px;padding:10px 16px;background-color:#6d28d9;color:#fff;text-decoration:none;border-radius:8px;font-weight:600;font-family:sans-serif;box-shadow:0 4px 12px rgba(109,40,217,0.2);transition:background-color 0.3s ease;">
+  <i class="fas fa-arrow-left"></i> Back
+</a>
+
+<script>
+  function goBack() {
+    window.history.back();
+  }
+</script>
+
+  <div class="max-w-5xl mx-auto bg-white shadow-lg rounded-xl p-8">
+    
+    <!-- Header -->
+    <div class="flex justify-center mb-6">
+      <div class="p-4 rounded-full icon-style">
+        <i data-lucide="laptop" class="w-8 h-8"></i>
+      </div>
+    </div>
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-4">Technology-Based Learning</h1>
+    <p class="text-center text-gray-600 mb-8">
+      Turn screen time into skill time. Embrace digital learning and build a brighter, future-ready you.
+    </p>
+
+    <!-- Why Tech Learning -->
+    <div class="bg-indigo-50 p-6 rounded-lg mb-8">
+      <h2 class="text-2xl font-semibold text-indigo-700 mb-4">Why Learn Through Technology?</h2>
+      <ul class="list-disc list-inside text-gray-700 space-y-2">
+        <li>Flexible learning — anytime, anywhere</li>
+        <li>Access to top-quality global content</li>
+        <li>Build in-demand skills like coding, design, and AI</li>
+        <li>Boosts confidence and career readiness</li>
+      </ul>
+    </div>
+
+    <!-- YouTube Videos -->
+    <div class="mb-10">
+      <h2 class="text-2xl font-semibold text-gray-800 mb-4">Top Tech Learning Videos</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe src="https://www.youtube.com/embed/nu_pCVPKzTk" title="Learn HTML & CSS Full Course" class="w-full h-full rounded-lg shadow" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe src="https://www.youtube.com/embed/8aGhZQkoFbQ" title="JavaScript Event Loop Explained" class="w-full h-full rounded-lg shadow" allowfullscreen></iframe>
+        </div>
+        <div class="aspect-w-16 aspect-h-9">
+          <iframe src="https://www.youtube.com/embed/-uleG_Vecis" title="Learn Python in 10 Minutes" class="w-full h-full rounded-lg shadow" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Affirmation -->
+    <div class="bg-green-100 p-6 rounded-lg text-green-800 mb-8">
+      <h2 class="text-xl font-semibold mb-2">Daily Affirmation</h2>
+      <p class="italic">“Every click, course, and line of code moves me closer to my goals.”</p>
+    </div>
+
+    <!-- Learning Resources -->
+    <div class="bg-gray-50 p-6 rounded-lg">
+      <h2 class="text-xl font-semibold text-gray-800 mb-2">Free & Trusted Learning Platforms</h2>
+      <ul class="list-disc list-inside text-gray-700">
+        <li><a href="https://www.freecodecamp.org/" target="_blank" class="text-indigo-700 hover:underline">freeCodeCamp</a> – Full-stack development courses</li>
+        <li><a href="https://www.khanacademy.org/computing" target="_blank" class="text-indigo-700 hover:underline">Khan Academy</a> – Programming & logic</li>
+        <li><a href="https://www.coursera.org/" target="_blank" class="text-indigo-700 hover:underline">Coursera</a> – University-level tech content</li>
+        <li><a href="https://www.edx.org/" target="_blank" class="text-indigo-700 hover:underline">edX</a> – Learn from MIT, Harvard, and more</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <script>
+    lucide.createIcons();
+  </script>
+</body>
+</html>

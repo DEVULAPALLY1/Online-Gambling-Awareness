@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz - GambleAware</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <div class="logo">
+                    <a href="index1.html">
+                        <div class="logo-circle"> <img src="unnamed-removebg-preview.png" alt=""> </div>
+                        <span class="site-name">GambleAware</span>
+                    </a>
+                </div>
+                
+                <ul class="nav-links">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="quiz.html" class="active">Quiz</a></li>
+                    <li><a href="recovery.html">Recovery</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+                
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Mobile Menu -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="index1.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="resources.html">Resources</a></li>
+        </ul>
+    </div>
+
+    <!-- Quiz Section -->
+    <section class="quiz-section">
+        <div class="container">
+            <div class="quiz-container">
+                <!-- Quiz Card -->
+                <div class="card quiz-card" id="quiz-card">
+                    <div class="card-header">
+                        <h2>Gambling Behavior Assessment</h2>
+                        <p id="question-counter">Question 1 of 10</p>
+                        <div class="progress-bar">
+                            <div class="progress" id="quiz-progress"></div>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 id="question-text">How often do you find yourself thinking about gambling?</h3>
+                        <div class="options-container" id="options-container">
+                            <!-- Options will be inserted by JavaScript -->
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <button class="btn btn-outline" id="prev-btn" disabled>
+                            <i class="fas fa-arrow-left"></i> Previous
+                        </button>
+                        <button class="btn btn-primary" id="next-btn" disabled>
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Card (initially hidden) -->
+                <div class="card results-card" id="results-card" style="display: none;">
+                    <div class="card-header text-center">
+                        <div id="result-icon"></div>
+                        <h2>Your Result: <span id="result-category"></span></h2>
+                        <p>Score: <span id="result-score"></span> out of 30</p>
+                    </div>
+                    <div class="card-body">
+                        <p id="result-description"></p>
+                        <div class="info-box">
+                            <h4>What does this mean?</h4>
+                            <p>This assessment is a screening tool and not a clinical diagnosis. If you're concerned about your gambling habits, consider speaking with a healthcare professional.</p>
+                        </div>
+                    </div>
+                    <div class="card-footer center">
+                        <a href="game.html" class="btn btn-primary">Try the Simulation Game</a>
+                        <a href="resources.html" class="btn btn-outline">View Support Resources</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- About -->
+                <div class="footer-column">
+                    <h3>GambleAware</h3>
+                    <p>Raising awareness about gambling disorder through interactive learning and emotional experiences.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index1.html">Home</a></li>
+                        <li><a href="news.html">News</a></li>
+                        <li><a href="quiz.html">Quiz</a></li>
+                        <li><a href="game.html">Game</a></li>
+                        <li><a href="resources.html">Resources</a></li>
+                    </ul>
+                </div>
+
+                <!-- Support -->
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>gambleaware0000@gmail.com</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>(+91) 7981686160</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Gandimaisamma medchal checkpost road, Basuragadi Village, Hyderabad, Telangana 501401</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; <span id="current-year"></span> GambleAware. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>

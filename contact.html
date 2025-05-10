@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact Us - GambleAware</title>
+  <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+        --primary-bg: #f9f9f9;
+        --primary-color: #3498db;
+        --primary-hover: #2c80b4;
+        --dark-bg: #2c3e50;
+        --text-dark: #333;
+        --text-light: #ffffff;
+        --gray: #ccc;
+        }
+
+        * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        }
+
+        body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: var(--primary-bg);
+        color: var(--text-dark);
+        }
+
+        a {
+        text-decoration: none;
+        color: inherit;
+        }
+
+        .container {
+        width: 90%;
+        max-width: 1100px;
+        margin: auto;
+        }
+
+
+      :root {
+  --primary-color: #4e54c8;
+  --primary-hover: #6c63ff;
+  --text-dark: #333;
+  --gray: #ccc;
+  --background-glass: rgba(255, 255, 255, 0.15);
+  --border-glass: rgba(255, 255, 255, 0.3);
+}
+
+.contact-box {
+  background: var(--background-glass);
+  padding: 40px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(31, 38, 135, 0.3);
+  animation: fadeSlideIn 1.2s ease both;
+  max-width: 600px;
+  margin: 50px auto;
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--border-glass);
+  transition: transform 0.3s ease;
+}
+
+.contact-box:hover {
+  transform: scale(1.01);
+  box-shadow: 0 12px 42px rgba(31, 38, 135, 0.4);
+}
+
+.contact-box h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 2.2rem;
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.contact-box p {
+  text-align: center;
+  margin-bottom: 30px;
+  color: var(--text-dark);
+  font-size: 1rem;
+}
+
+.contact-form .form-group {
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 16px 12px;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid var(--gray);
+  border-radius: 8px;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 12px rgba(78, 84, 200, 0.3);
+  background-color: #fff;
+}
+
+.contact-form label {
+  position: absolute;
+  top: 16px;
+  left: 14px;
+  color: #666;
+  font-size: 0.95rem;
+  background-color: transparent;
+  padding: 0 4px;
+  transition: 0.3s ease;
+  pointer-events: none;
+}
+
+.contact-form input:focus + label,
+.contact-form input:not(:placeholder-shown) + label,
+.contact-form textarea:focus + label,
+.contact-form textarea:not(:placeholder-shown) + label {
+  top: -10px;
+  left: 10px;
+  font-size: 0.75rem;
+  color: var(--primary-color);
+  background: #fff;
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contact-form button {
+  background: linear-gradient(135deg, var(--primary-color), var(--primary-hover));
+  color: white;
+  border: none;
+  padding: 14px 20px;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(78, 84, 200, 0.3);
+}
+
+.contact-form button:hover {
+  background: linear-gradient(135deg, var(--primary-hover), var(--primary-color));
+  transform: translateY(-2px);
+  box-shadow: 0 6px 24px rgba(78, 84, 200, 0.4);
+}
+
+.feedback {
+  text-align: center;
+  margin-top: 12px;
+  font-size: 0.95rem;
+  color: var(--primary-color);
+  animation: fadeIn 0.6s ease;
+}
+
+/* Animations */
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+
+    </style>
+  
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container">
+      <div class="navbar-content">
+        <div class="logo">
+          <a href="index1.html">
+            <div class="logo-circle"><img src="unnamed-removebg-preview.png" alt="logo" /></div>
+            <span class="site-name">GambleAware</span>
+          </a>
+        </div>
+        <ul class="nav-links">
+          <li><a href="index1.html">Home</a></li>
+          <li><a href="news.html">News</a></li>
+          <li><a href="quiz.html">Quiz</a></li>
+          <li><a href="recovery.html">Recovery</a></li>
+          <li><a href="resources.html">Resources</a></li>
+        </ul>
+        <div class="mobile-menu-btn">
+          <i class="fas fa-bars"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <section class="contact-section">
+  <div class="container">
+    <div class="contact-box">
+      <h2>Contact Us</h2>
+      <p>If you have any questions or feedback, feel free to reach out.</p>
+
+      <form id="contactForm" onsubmit="return validateForm()" class="contact-form">
+        <div class="form-group">
+          <input type="text" id="name" name="name" required />
+          <label for="name">Full Name</label>
+        </div>
+
+        <div class="form-group">
+          <input type="email" id="email" name="email" required />
+          <label for="email">Email Address</label>
+        </div>
+
+        <div class="form-group">
+          <textarea id="message" name="message" rows="4" required></textarea>
+          <label for="message">Your Message</label>
+        </div>
+
+        <button type="submit">Send Message</button>
+        <p id="formFeedback" class="feedback"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-column">
+          <h3>GambleAware</h3>
+          <p>Raising awareness about gambling disorder through interactive learning and emotional experiences.</p>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-column">
+          <h3>Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="resources.html">Resources</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Support</h3>
+          <ul class="footer-links">
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h3>Contact Us</h3>
+          <ul class="contact-info">
+            <li><i class="fas fa-envelope"></i> gambleaware0000@gmail.com</li>
+            <li><i class="fas fa-phone"></i> (+91) 7981686160</li>
+            <li><i class="fas fa-map-marker-alt"></i> Hyderabad, Telangana, India</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="current-year"></span> GambleAware. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    function validateForm() {
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+      const feedback = document.getElementById("formFeedback");
+
+      if (!name || !email || !message) {
+        feedback.textContent = "All fields are required.";
+        feedback.style.color = "red";
+        return false;
+      }
+
+      const emailRegex = /^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/;
+      if (!emailRegex.test(email)) {
+        feedback.textContent = "Invalid email format.";
+        feedback.style.color = "red";
+        return false;
+      }
+
+      feedback.textContent = "Thank you for your message!";
+      feedback.style.color = "green";
+      return false; // Prevent form submission for demo
+    }
+
+    document.getElementById("current-year").textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

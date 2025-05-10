@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Choose Your Learning Categories</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content" style="margin-right: 175px; margin-left: 160px;">
+                <div class="logo">
+                    <a href="index1.html">
+                        <div class="logo-circle">
+                            <img src="unnamed-removebg-preview.png" alt="GambleAware Logo" />
+                        </div>
+                        <span class="site-name">GambleAware</span>
+                    </a>
+                </div>
+
+                <!-- Desktop Navigation -->
+                <ul class="nav-links">
+                    <li><a href="index1.html">Home</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="quiz.html">Quiz</a></li>
+                    <li><a href="recovery.html" class="active">Recovery</a></li>
+                    <li><a href="resources.html">Resources</a></li>
+                </ul>
+
+                <!-- Mobile Menu Button -->
+                <div class="mobile-menu-btn">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation Menu -->
+    <div class="mobile-menu">
+        <ul class="mobile-nav-links">
+            <li><a href="index1.html">Home</a></li>
+            <li><a href="news.html">News</a></li>
+            <li><a href="quiz.html">Quiz</a></li>
+            <li><a href="game.html">Game</a></li>
+            <li><a href="resources.html">Resources</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="signup.html">Sign Up</a></li>
+        </ul>
+    </div>
+
+
+  <!-- Category Selection Section -->
+  <div class="max-w-6xl mx-auto mt-8">
+    <div class="bg-white shadow-md rounded-lg overflow-hidden">
+      <div class="p-6 text-center">
+        <h1 class="text-2xl font-semibold">Choose Your Learning Categories</h1>
+        <p class="text-gray-600">Select one category that interests you</p>
+      </div>
+
+      <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="category-container">
+        <!-- Categories will be injected here -->
+      </div>
+
+      <div class="p-6 text-center">
+        <button
+          onclick="submitCategories()"
+          id="submit-btn"
+          disabled
+          class="btn-primary px-8 py-2 rounded disabled:opacity-50 bg-purple-600 text-white"
+        >
+          Continue
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    window.onload = function () {
+      const categories = [
+        { id: "technology", name: "Technology", icon: "code", description: "Programming, web development, AI, and more" },
+        { id: "cooking", name: "Cooking", icon: "utensils", description: "Recipes, techniques, and culinary skills" },
+        { id: "business", name: "Business", icon: "briefcase", description: "Entrepreneurship, marketing, and finance" },
+        { id: "fitness", name: "Fitness", icon: "dumbbell", description: "Exercise, nutrition, and wellness" },
+        { id: "music", name: "Music", icon: "music", description: "Instruments, theory, and music production" }
+      ];
+
+      const container = document.getElementById("category-container");
+      const selectedCategories = new Set();
+
+      categories.forEach(category => {
+        const div = document.createElement("div");
+        div.className =
+          "border rounded-lg p-4 cursor-pointer transition-colors border-gray-200 hover:border-purple-600";
+
+        div.innerHTML = `
+          <div class="flex items-start space-x-3">
+            <div class="p-2 rounded-full bg-gray-100">
+              <i data-lucide="${category.icon}" class="h-5 w-5 text-gray-600"></i>
+            </div>
+            <div class="flex-1">
+              <div class="flex items-center justify-between">
+                <label class="font-medium cursor-pointer">${category.name}</label>
+                <input type="checkbox" class="accent-purple-600" />
+              </div>
+              <p class="text-sm text-gray-500 mt-1">${category.description}</p>
+            </div>
+          </div>
+        `;
+
+        // Attach click listener
+        div.addEventListener("click", function () {
+          toggleCategory(div, category.id);
+        });
+
+        container.appendChild(div);
+      });
+
+      lucide.createIcons();
+
+      // Enforce single selection
+      window.toggleCategory = function (el, id) {
+        // Deselect all
+        document.querySelectorAll('#category-container > div').forEach(card => {
+          card.classList.remove("border-purple-600", "bg-purple-100");
+          card.classList.add("border-gray-200");
+          const iconWrapper = card.querySelector('div.p-2');
+          iconWrapper.classList.remove("bg-purple-400", "text-white");
+          iconWrapper.classList.add("bg-gray-100");
+          card.querySelector('input[type="checkbox"]').checked = false;
+        });
+
+        // Select clicked
+        el.querySelector('input[type="checkbox"]').checked = true;
+        el.classList.add("border-purple-600", "bg-purple-100");
+        el.classList.remove("border-gray-200");
+        el.querySelector('div.p-2').classList.add("bg-purple-400", "text-white");
+        el.querySelector('div.p-2').classList.remove("bg-gray-100");
+
+        selectedCategories.clear();
+        selectedCategories.add(id);
+
+        document.getElementById("submit-btn").disabled = false;
+      };
+
+      window.submitCategories = function () {
+        if (selectedCategories.size === 1) {
+          const selected = Array.from(selectedCategories)[0];
+          window.location.href = selected + ".html"; // Redirect
+        } else {
+          alert("Please select one category to continue.");
+        }
+      };
+    };
+  </script>
+</body>
+</html>
