@@ -1,7 +1,7 @@
 // Quiz questions and options
 const questions = [
     {
-        question: "How often do you find yourself thinking about gambling?",
+        question: "How often do you play games on your phone or computer just to pass time?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Occasionally" },
@@ -10,7 +10,16 @@ const questions = [
         ]
     },
     {
-        question: "Have you ever lied to family or friends about how much you gamble?",
+        question: "When you win at a game, how does it make you feel?",
+        options: [
+            { value: "0", label: "Indifferent" },
+            { value: "1", label: "Happy" },
+            { value: "2", label: "Excited" },
+            { value: "3", label: "Proud" }
+        ]
+    },
+    {
+        question: "Have you ever kept playing a game just to beat your high score or get revenge on a loss?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Once or twice" },
@@ -19,16 +28,7 @@ const questions = [
         ]
     },
     {
-        question: "Have you ever gambled more money than you intended to?",
-        options: [
-            { value: "0", label: "Never" },
-            { value: "1", label: "Once or twice" },
-            { value: "2", label: "Sometimes" },
-            { value: "3", label: "Often" }
-        ]
-    },
-    {
-        question: "Do you feel restless or irritable when trying to cut down on gambling?",
+        question: "Have you ever spent real money in a game to unlock features or continue playing?",
         options: [
             { value: "0", label: "Not at all" },
             { value: "1", label: "Slightly" },
@@ -37,7 +37,7 @@ const questions = [
         ]
     },
     {
-        question: "Have you ever gambled to escape problems or relieve feelings of helplessness, guilt, anxiety, or depression?",
+        question: "Do you feel a thrill when you take risks in games or competitions?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Rarely" },
@@ -46,7 +46,7 @@ const questions = [
         ]
     },
     {
-        question: "After losing money gambling, do you often return to get even ('chase' your losses)?",
+        question: "Have you ever placed a small bet—real or virtual—just for fun?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Rarely" },
@@ -55,7 +55,7 @@ const questions = [
         ]
     },
     {
-        question: "Have you jeopardized or lost a significant relationship, job, or educational opportunity because of gambling?",
+        question: "Do you find yourself thinking about winning money through luck, skill, or chance-based games?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Once" },
@@ -64,7 +64,7 @@ const questions = [
         ]
     },
     {
-        question: "Have you relied on others to provide money to relieve a desperate financial situation caused by gambling?",
+        question: "When you lose, do you feel the urge to try again immediately to win it back?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Once" },
@@ -73,7 +73,7 @@ const questions = [
         ]
     },
     {
-        question: "How often have you spent more time gambling than you had planned?",
+        question: "Have you ever told someone you were playing a game, but you were actually gambling?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Occasionally" },
@@ -82,7 +82,7 @@ const questions = [
         ]
     },
     {
-        question: "Have you ever felt guilty about the way you gamble or what happens when you gamble?",
+        question: "Do you feel in control of your gambling habits—or are they starting to control you?",
         options: [
             { value: "0", label: "Never" },
             { value: "1", label: "Occasionally" },
@@ -108,11 +108,8 @@ const quizProgress = document.getElementById('quiz-progress');
 
 // Initialize quiz
 function initQuiz() {
-    if (!quizCard) return; // Exit if not on quiz page
-    
+    if (!quizCard) return;
     loadQuestion();
-    
-    // Event listeners for navigation buttons
     prevBtn.addEventListener('click', goToPreviousQuestion);
     nextBtn.addEventListener('click', goToNextQuestion);
 }
@@ -120,19 +117,13 @@ function initQuiz() {
 // Load current question
 function loadQuestion() {
     const question = questions[currentQuestion];
-    
-    // Update question text and counter
     questionText.textContent = question.question;
     questionCounter.textContent = `Question ${currentQuestion + 1} of ${questions.length}`;
     
-    // Update progress bar
     const progress = ((currentQuestion + 1) / questions.length) * 100;
     quizProgress.style.width = `${progress}%`;
     
-    // Clear options container
     optionsContainer.innerHTML = '';
-    
-    // Add options
     question.options.forEach((option, index) => {
         const optionItem = document.createElement('div');
         optionItem.className = `option-item ${answers[currentQuestion] === option.value ? 'selected' : ''}`;
@@ -141,29 +132,17 @@ function loadQuestion() {
             <label for="option-${index}">${option.label}</label>
         `;
         optionsContainer.appendChild(optionItem);
-        
-        // Add click event to select option
         optionItem.addEventListener('click', () => selectOption(option.value));
     });
-    
-    // Update button states
+
     prevBtn.disabled = currentQuestion === 0;
     nextBtn.disabled = !answers[currentQuestion];
-    
-    // Update next button text for last question
-    if (currentQuestion === questions.length - 1) {
-        nextBtn.textContent = 'See Results';
-    } else {
-        nextBtn.textContent = 'Next';
-        nextBtn.innerHTML = 'Next <i class="fas fa-arrow-right"></i>';
-    }
+    nextBtn.innerHTML = currentQuestion === questions.length - 1 ? 'See Results' : 'Next <i class="fas fa-arrow-right"></i>';
 }
 
 // Select an option
 function selectOption(value) {
     answers[currentQuestion] = value;
-    
-    // Update selected state in UI
     const optionItems = optionsContainer.querySelectorAll('.option-item');
     optionItems.forEach(item => {
         const input = item.querySelector('input');
@@ -175,8 +154,6 @@ function selectOption(value) {
             input.checked = false;
         }
     });
-    
-    // Enable next button
     nextBtn.disabled = false;
 }
 
@@ -198,14 +175,11 @@ function goToNextQuestion() {
     }
 }
 
-// Calculate score and show results
+// Show results
 function showResults() {
-    // Calculate total score
     const score = answers.reduce((total, answer) => total + parseInt(answer || "0"), 0);
     
-    // Determine result category
     let category, description, iconClass;
-    
     if (score <= 5) {
         category = "Low Risk";
         description = "Your gambling habits appear to be under control. Continue to be mindful of your gambling activities.";
@@ -219,14 +193,12 @@ function showResults() {
         description = "Your gambling habits suggest a potential gambling disorder. We strongly recommend seeking professional help.";
         iconClass = "fas fa-exclamation-triangle text-danger";
     }
-    
-    // Update results card
+
     document.getElementById('result-category').textContent = category;
     document.getElementById('result-score').textContent = score;
     document.getElementById('result-description').textContent = description;
     document.getElementById('result-icon').innerHTML = `<i class="${iconClass}"></i>`;
-    
-    // Add appropriate class to results card based on risk level
+
     resultsCard.className = 'card results-card';
     if (score <= 5) {
         resultsCard.classList.add('success-result');
@@ -235,13 +207,12 @@ function showResults() {
     } else {
         resultsCard.classList.add('danger-result');
     }
-    
-    // Hide quiz card and show results card
+
     quizCard.style.display = 'none';
     resultsCard.style.display = 'block';
 }
 
-// Initialize quiz if on quiz page
+// Start quiz
 if (document.querySelector('.quiz-section')) {
     initQuiz();
 }
